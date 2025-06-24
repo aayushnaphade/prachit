@@ -1,0 +1,266 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internship Report - CNG Dispenser & Priority Panel</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- AOS Library for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #f2f2f2;
+      color: #1b1b1b;
+    }
+    header {
+      background-color: #003057;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 50px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .title-box {
+      text-align: center;
+      flex-grow: 1;
+      animation: slideIn 1.2s ease-in-out;
+    }
+    nav {
+      background-color: #6cace4;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    section {
+      padding: 2rem;
+    }
+    h2 {
+      color: #003057;
+      margin-bottom: 1rem;
+    }
+    .component {
+      margin-bottom: 2rem;
+      background-color: #fff;
+      padding: 1rem;
+      border-left: 5px solid #003057;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .component:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #003057;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title-box">
+      <h1>Internship Report</h1>
+      <p>CNG Dispenser & Priority Panel - Parker Hannifin</p>
+    </div>
+    
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#components">Components</a>
+    <a href="#suggestion">Suggestions</a>
+  </nav>
+
+  <section id="About" data-aos="fade-up">
+    <h2>About</h2>
+    <p>This internship at Parker Hannifin involved hands-on assembly of CNG dispensers and priority panels. The experience provided deep insights into the manufacturing process and the functioning of gas dispensing systems.</p>
+  </section>
+
+  <section id="components">
+    <h2 data-aos="fade-right">Coponents and Working</h2>
+
+
+    <div class="component">
+      <h3>CNG Dispenser</h3>
+      <p>The CNG dispenser is a metering and control device used to safely fill CNG in vehicles.</p>
+    </div>
+
+    <div class="component">
+      <h3>Priority Panel</h3>
+      <p>Ensures optimal pressure management by prioritizing high-pressure gas for fast filling.</p>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+         
+      <h3>Actuator</h3>
+      <p>The pneumatic actuator is a device that converts the energy of compressed air into mechanical motion. When air enters the actuator's chamber, it pushes against a piston or diaphragm, generating linear or rotary motion depending on the actuator type. In single-acting actuators, a spring returns the piston to its original position, while in double-acting types, air pressure is used in both directions for control. These actuators are crucial for automatic valve operation without manual intervention.</p>
+      <iframe src="https://www.youtube.com/embed/CkKi0gsmCEU" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Z6nMt-cIxpI" allowfullscreen></iframe>
+    </div>
+
+       <div class="component" data-aos="fade-up">
+      
+      <h3>FRL</h3>
+      <p>An FRL unit, which stands for Filter-Regulator-Lubricator, prepares compressed air before it enters pneumatic components. The filter removes dust, oil, and water particles using centrifugal separation. The regulator ensures a constant output pressure using a diaphragm and spring mechanism, regardless of input fluctuations. The lubricator adds a fine oil mist into the air stream via a vacuum effect, protecting and extending the life of pneumatic tools and actuators.</p>
+      <iframe src="https://www.youtube.com/embed/fu08KCospiY" allowfullscreen></iframe>
+    </div>
+
+     <div class="component" data-aos="fade-up">
+      
+      <h3>Mass Flow Meter</h3>
+      <p>The mass flow meter is essential for accurately measuring the quantity of gas dispensed. Unlike volumetric flow meters, it directly measures the mass flow rate, often using Coriolis or thermal principles. In Coriolis meters, the flow of gas through a vibrating tube induces twisting, which correlates with the gas mass. In thermal mass flow meters, the cooling effect of gas on a heated sensor determines the flow rate. This ensures accurate fuel delivery, irrespective of changes in temperature or pressure.</p>
+      <iframe src="https://www.youtube.com/embed/XIIViaNITIw" allowfullscreen></iframe>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+      
+      <h3>NRV (Non-Return Valve)</h3>
+      <p>A non-return valve (NRV) allows gas or fluid to flow in only one direction. Inside the valve, a disc or ball opens when flow occurs in the correct direction. If the flow reverses, the disc or ball closes, preventing backflow. This is critical for preventing contamination or pressure backfeed in a CNG system</p>
+      <iframe src="https://www.youtube.com/embed/basalugaExE" allowfullscreen></iframe>
+    </div>
+
+     <div class="component" data-aos="fade-up">
+      
+      <h3>NAMUR Valve</h3>
+      <p>The NAMUR valve is a standardized solenoid valve that mounts directly onto actuators via the NAMUR interface. When energized, the solenoid shifts an internal spool to direct air to specific actuator ports, enabling opening or closing of the valve. The standard port layout simplifies integration and maintenance in automated systems.</p>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+      
+      <h3>Needle Valve</h3>
+      <p>Provides precise control of gas flow.</p>
+      <iframe src="https://www.youtube.com/embed/D2CMOkd7yDs" allowfullscreen></iframe>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+      
+      <h3>Manifold</h3>
+      <p>A manifold is a block or structure used to distribute compressed air or gas from a single inlet to multiple outlets. It contains internal chambers and passages that connect different lines. Manifolds are commonly used in control panels to reduce clutter and centralize the supply of air or gas to various solenoids or actuators.</p>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+      
+      <h3>TRS</h3>
+      <p>Temperature/pressure regulating system to direct gas safely.</p>
+      <iframe src="https://www.youtube.com/embed/7sDxPZwyrKA" allowfullscreen></iframe>
+    </div>
+
+   <div class="component" data-aos="fade-up">
+      
+      <h3>K6</h3>
+      <p>The K6 valve, often used as a priority sequence valve, controls the flow of gas to storage banks. It ensures high-pressure banks are filled first by using a spring and piston mechanism triggered by pressure levels. Once the priority bank reaches a set pressure, the valve allows gas to flow to secondary banks. This sequencing is vital for maintaining consistent and efficient fuel supply.</p>
+      <iframe src="https://www.youtube.com/embed/Isc08DU6WTE" allowfullscreen></iframe>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+      
+      <h3>Hose Manifold</h3>
+      <p>Enables gas delivery to multiple hoses efficiently.</p>
+    </div>
+
+    <div class="component" data-aos="fade-up">
+      
+      <h3>Solenoid Valve</h3>
+      <p>A solenoid valve is an electrically controlled valve that opens or closes based on signals from a control system. Inside, a coil creates a magnetic field when energized, moving a plunger that opens or closes the valve port. When de-energized, the spring pushes the plunger back. Solenoid valves are widely used for precise, automatic gas or air control.</p>
+      <iframe src="https://www.youtube.com/embed/-MLGr1_Fw0c" allowfullscreen></iframe>
+    </div>
+
+   <div class="component" data-aos="fade-up">
+      
+      <h3>Rotex Coil</h3>
+      <p>Magnetic coil used to actuate valves.</p>
+    </div>
+
+   <div class="component" data-aos="fade-up">
+      
+      <h3>Pressure Transmitter</h3>
+      <p>The pressure transmitter monitors the gas pressure within the system and converts it into an electrical signal. It uses a sensor, typically a strain gauge or diaphragm, that deforms under pressure. This deformation is converted into a signal (usually 4–20 mA or 0–10 V) sent to a control system for monitoring, display, or triggering safety mechanisms such as emergency shutdowns.</p>
+      <iframe src="https://www.youtube.com/embed/4TixHFwdujA" allowfullscreen></iframe>
+    </div>
+
+  </section>
+
+<section id="suggestion">
+    <h2>Suggestions</h2>
+    <p>If you have any feedback or suggestions, please fill out the form below:</p>
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfmhbB6V8CAT4uBR0_6fCVa9xu3hyF1N5ex--6ql1M3hSQgKg/viewform?embedded=true" 
+      width="100%" 
+      height="800" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0">
+      Loading…
+    </iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Parker Hannifin Internship Report | Designed by Prachit P. Sangwai</p>
+    <p>Roll No. BT22MEC013 | VNIT Nagpur</p>
+  </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>
