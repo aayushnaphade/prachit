@@ -3,113 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Internship Report - CNG Dispenser & Priority Panel</title>
+  <title>Internship Report - CNG Dispenser & Priority panel</title>
   
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Improved typography with multiple font weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- AOS Library for scroll animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
+    :root {
+      --primary-color: #004B87;      /* Parker blue */
+      --secondary-color: #007DC3;    /* Lighter blue */
+      --accent-color: #F2A900;       /* Parker gold/yellow */
+      --dark-color: #1E293B;         /* Dark slate for text */
+      --light-color: #F8FAFC;        /* Off-white for backgrounds */
+      --text-color: #334155;         /* Slate gray for body text */
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --border-radius: 8px;
+    }
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
+    
     body {
-      background-color: #f2f2f2;
-      color: #1b1b1b;
+      background-color: var(--light-color);
+      color: var(--text-color);
+      font-size: 16px;
+      line-height: 1.6;
     }
+    
     header {
-      background-color: #003057;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+    
     .logo {
-      height: 50px;
+      height: 60px;
       animation: fadeIn 1s ease-in-out;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
+    
     .title-box {
       text-align: center;
       flex-grow: 1;
       animation: slideIn 1.2s ease-in-out;
+      position: relative;
+      z-index: 1;
     }
+    
+    .title-box h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.5px;
+    }
+    
+    .title-box p {
+      font-weight: 300;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    
     nav {
-      background-color: #6cace4;
+      background-color: #fff;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 0.8rem;
+      gap: 3rem;
+      padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 999;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
     }
+    
+    nav.scrolled {
+      padding: 0.7rem;
+      box-shadow: var(--shadow-md);
+    }
+    
     nav a {
-      color: #fff;
+      color: var(--primary-color);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.05rem;
       position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
     }
+    
     nav a::after {
       content: '';
       display: block;
       width: 0;
-      height: 2px;
-      background: #fff;
-      transition: width 0.3s;
+      height: 3px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
       position: absolute;
-      bottom: -4px;
+      bottom: 0;
       left: 0;
+      border-radius: 3px;
     }
+    
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+    
     nav a:hover::after {
       width: 100%;
     }
+    
     section {
-      padding: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+    
+    section:nth-child(even) {
+      background-color: #fff;
+    }
+    
     h2 {
-      color: #003057;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+    
+    h3 {
+      color: var(--secondary-color);
+      margin: 0.5rem 0 1rem;
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    
+    .section-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    /* Footer styling */
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-logo {
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
-    .component {
-      margin-bottom: 2rem;
-      background-color: #fff;
-      padding: 1rem;
-      border-left: 5px solid #003057;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .component:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      border: none;
-      margin-top: 1rem;
-      border-radius: 8px;
-    }
-    footer {
+    
+    .footer-info {
       text-align: center;
-      padding: 1rem;
-      background-color: #003057;
-      color: white;
     }
-
+    
+    .footer-links {
+      margin-top: 1rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      background: var(--accent-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Component icon styling */
+    .component h3::before {
+      content: "\f013";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--accent-color);
+      margin-right: 0.5rem;
+    }
+    
+    .component:nth-child(3n+1) h3::before { content: "\f085"; }
+    .component:nth-child(3n+2) h3::before { content: "\f1de"; }
+    .component:nth-child(3n+3) h3::before { content: "\f06c"; }
+    
+    /* First and last components special styling */
+    .component:first-of-type {
+      border-top-color: var(--accent-color);
+    }
+    
+    .component:last-of-type {
+      border-top-color: var(--accent-color);
+    }
+    
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    
     @keyframes slideIn {
-      from { transform: translateY(-20px); opacity: 0; }
+      from { transform: translateY(-30px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+      
+      .title-box h1 {
+        font-size: 1.8rem;
+      }
+      
+      nav {
+        gap: 1.5rem;
+        padding: 0.8rem 0.5rem;
+      }
+      
+      nav a {
+        font-size: 0.95rem;
+      }
+      
+      section {
+        padding: 3rem 1.5rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .component {
+        padding: 1.5rem;
+      }
+    }
+    
+    .form-container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      margin-top: 2rem;
+    }
+    
+    /* Additional component stylistic enhancements */
+    .component {
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    .component:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Add highlighted text */
+    .highlight {
+      background: linear-gradient(120deg, rgba(242,169,0,0.2) 0%, rgba(242,169,0,0.2) 100%);
+      padding: 0 0.2rem;
+      border-radius: 2px;
     }
   </style>
 </head>
@@ -117,25 +321,28 @@
 
   <header>
     <div class="title-box">
-      <h1>Internship Report</h1>
-      <p>CNG Dispenser & Priority Panel - Parker Hannifin</p>
+      <h1><i class="fas fa-file-alt"></i> Working of components</h1>
+      <p>CNG Dispenser & Priority Panel</p>
     </div>
-    
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#components">Components</a>
-    <a href="#suggestion">Suggestions</a>
+  <nav id="main-nav">
+    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+    <a href="#components"><i class="fas fa-cogs"></i> Components</a>
+    <a href="#suggestion"><i class="fas fa-comment-alt"></i> Feedback</a>
   </nav>
 
-  <section id="About" data-aos="fade-up">
-    <h2>About</h2>
-    <p>This internship at Parker Hannifin involved hands-on assembly of CNG dispensers and priority panels. The experience provided deep insights into the manufacturing process and the functioning of gas dispensing systems.</p>
+  <section id="about" data-aos="fade-up">
+    <div class="section-container">
+      <h2>About the Internship</h2>
+      <p>This internship involved hands-on assembly of CNG dispensers and Priority panels. The experience provided deep insights into the manufacturing process and the functioning of gas dispensing systems.</p>
+      <p>Through practical work and guidance from industry professionals, I gained valuable knowledge about industrial systems, quality control processes, and technical specifications of compressed natural gas equipment.</p>
+    </div>
   </section>
 
   <section id="components">
-    <h2 data-aos="fade-right">Coponents and Working</h2>
+    <div class="section-container">
+      <h2 data-aos="fade-right">Components and Working</h2>
 
 
     <div class="component">
@@ -148,36 +355,45 @@
       <p>Ensures optimal pressure management by prioritizing high-pressure gas for fast filling.</p>
     </div>
 
-    <div class="component" data-aos="fade-up">
-         
+    <div class="component" data-aos="fade-up">     
       <h3>Actuator</h3>
-      <p>The pneumatic actuator is a device that converts the energy of compressed air into mechanical motion. When air enters the actuator's chamber, it pushes against a piston or diaphragm, generating linear or rotary motion depending on the actuator type. In single-acting actuators, a spring returns the piston to its original position, while in double-acting types, air pressure is used in both directions for control. These actuators are crucial for automatic valve operation without manual intervention.</p>
-      <iframe src="https://www.youtube.com/embed/CkKi0gsmCEU" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/Z6nMt-cIxpI" allowfullscreen></iframe>
+      <p class="highlight">The pneumatic actuator is a device that converts the energy of compressed air into mechanical motion. When air enters the actuator's chamber, it pushes against a piston or diaphragm, generating linear or rotary motion depending on the actuator type. In single-acting actuators, a spring returns the piston to its original position, while in double-acting types, air pressure is used in both directions for control. These actuators are crucial for automatic valve operation without manual intervention.</p>
+      <div class="video-grid">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/CkKi0gsmCEU" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/Z6nMt-cIxpI" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
 
-       <div class="component" data-aos="fade-up">
-      
+    <div class="component" data-aos="fade-up">
       <h3>FRL</h3>
       <p>An FRL unit, which stands for Filter-Regulator-Lubricator, prepares compressed air before it enters pneumatic components. The filter removes dust, oil, and water particles using centrifugal separation. The regulator ensures a constant output pressure using a diaphragm and spring mechanism, regardless of input fluctuations. The lubricator adds a fine oil mist into the air stream via a vacuum effect, protecting and extending the life of pneumatic tools and actuators.</p>
-      <iframe src="https://www.youtube.com/embed/fu08KCospiY" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/fu08KCospiY" allowfullscreen></iframe>
+      </div>
     </div>
 
-     <div class="component" data-aos="fade-up">
-      
+    <div class="component" data-aos="fade-up">
       <h3>Mass Flow Meter</h3>
-      <p>The mass flow meter is essential for accurately measuring the quantity of gas dispensed. Unlike volumetric flow meters, it directly measures the mass flow rate, often using Coriolis or thermal principles. In Coriolis meters, the flow of gas through a vibrating tube induces twisting, which correlates with the gas mass. In thermal mass flow meters, the cooling effect of gas on a heated sensor determines the flow rate. This ensures accurate fuel delivery, irrespective of changes in temperature or pressure.</p>
-      <iframe src="https://www.youtube.com/embed/XIIViaNITIw" allowfullscreen></iframe>
+      <p class="highlight">The mass flow meter is essential for accurately measuring the quantity of gas dispensed. Unlike volumetric flow meters, it directly measures the mass flow rate, often using Coriolis or thermal principles. In Coriolis meters, the flow of gas through a vibrating tube induces twisting, which correlates with the gas mass. In thermal mass flow meters, the cooling effect of gas on a heated sensor determines the flow rate. This ensures accurate fuel delivery, irrespective of changes in temperature or pressure.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/XIIViaNITIw" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="component" data-aos="fade-up">
       
       <h3>NRV (Non-Return Valve)</h3>
-      <p>A non-return valve (NRV) allows gas or fluid to flow in only one direction. Inside the valve, a disc or ball opens when flow occurs in the correct direction. If the flow reverses, the disc or ball closes, preventing backflow. This is critical for preventing contamination or pressure backfeed in a CNG system</p>
-      <iframe src="https://www.youtube.com/embed/basalugaExE" allowfullscreen></iframe>
+      <p>A non-return valve (NRV) allows gas or fluid to flow in only one direction. Inside the valve, a disc or ball opens when flow occurs in the correct direction. If the flow reverses, the disc or ball closes, preventing backflow. This is critical for preventing contamination or pressure backfeed in a CNG system.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/basalugaExE" allowfullscreen></iframe>
+      </div>
     </div>
 
-     <div class="component" data-aos="fade-up">
+    <div class="component" data-aos="fade-up">
       
       <h3>NAMUR Valve</h3>
       <p>The NAMUR valve is a standardized solenoid valve that mounts directly onto actuators via the NAMUR interface. When energized, the solenoid shifts an internal spool to direct air to specific actuator ports, enabling opening or closing of the valve. The standard port layout simplifies integration and maintenance in automated systems.</p>
@@ -186,80 +402,115 @@
     <div class="component" data-aos="fade-up">
       
       <h3>Needle Valve</h3>
-      <p>Provides precise control of gas flow.</p>
-      <iframe src="https://www.youtube.com/embed/D2CMOkd7yDs" allowfullscreen></iframe>
+      <p>Provides precise control of gas flow through a tapered needle mechanism that allows for fine adjustments to flow rates. The valve opens and closes gradually as the needle is moved in or out of the flow path, making it ideal for applications requiring meticulous flow control.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/D2CMOkd7yDs" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="component" data-aos="fade-up">
       
       <h3>Manifold</h3>
-      <p>A manifold is a block or structure used to distribute compressed air or gas from a single inlet to multiple outlets. It contains internal chambers and passages that connect different lines. Manifolds are commonly used in control panels to reduce clutter and centralize the supply of air or gas to various solenoids or actuators.</p>
+      <p>A manifold is a block or structure used to distribute compressed air or gas from a single inlet to multiple outlets. It contains internal chambers and passages that connect different lines. Manifolds are commonly used in control panels to reduce clutter and centralize the supply of air or gas to various solenoids or actuators, enhancing system organization and efficiency.</p>
     </div>
 
     <div class="component" data-aos="fade-up">
-      
       <h3>TRS</h3>
-      <p>Temperature/pressure regulating system to direct gas safely.</p>
-      <iframe src="https://www.youtube.com/embed/7sDxPZwyrKA" allowfullscreen></iframe>
+      <p>Temperature/pressure regulating system that ensures gas flows safely within prescribed parameters. This advanced system monitors both temperature and pressure variables simultaneously, making real-time adjustments to maintain optimal operating conditions for the gas dispensing system.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7sDxPZwyrKA" allowfullscreen></iframe>
+      </div>
     </div>
 
    <div class="component" data-aos="fade-up">
-      
-      <h3>K6</h3>
-      <p>The K6 valve, often used as a priority sequence valve, controls the flow of gas to storage banks. It ensures high-pressure banks are filled first by using a spring and piston mechanism triggered by pressure levels. Once the priority bank reaches a set pressure, the valve allows gas to flow to secondary banks. This sequencing is vital for maintaining consistent and efficient fuel supply.</p>
-      <iframe src="https://www.youtube.com/embed/Isc08DU6WTE" allowfullscreen></iframe>
+      <h3>K6 Valve</h3>
+      <p class="highlight">The K6 valve, often used as a priority sequence valve, controls the flow of gas to storage banks. It ensures high-pressure banks are filled first by using a spring and piston mechanism triggered by pressure levels. Once the priority bank reaches a set pressure, the valve allows gas to flow to secondary banks. This sequencing is vital for maintaining consistent and efficient fuel supply.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Isc08DU6WTE" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="component" data-aos="fade-up">
-      
       <h3>Hose Manifold</h3>
-      <p>Enables gas delivery to multiple hoses efficiently.</p>
+      <p>Enables gas delivery to multiple hoses efficiently through a centralized distribution point. The hose manifold integrates multiple outlets with standardized connections, allowing for simultaneous fueling operations while maintaining consistent pressure across all delivery points.</p>
     </div>
 
     <div class="component" data-aos="fade-up">
       
       <h3>Solenoid Valve</h3>
       <p>A solenoid valve is an electrically controlled valve that opens or closes based on signals from a control system. Inside, a coil creates a magnetic field when energized, moving a plunger that opens or closes the valve port. When de-energized, the spring pushes the plunger back. Solenoid valves are widely used for precise, automatic gas or air control.</p>
-      <iframe src="https://www.youtube.com/embed/-MLGr1_Fw0c" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/-MLGr1_Fw0c" allowfullscreen></iframe>
+      </div>
     </div>
 
    <div class="component" data-aos="fade-up">
-      
       <h3>Rotex Coil</h3>
-      <p>Magnetic coil used to actuate valves.</p>
+      <p>Magnetic coil used to actuate valves by converting electrical energy into mechanical force. When energized, the Rotex coil generates a magnetic field that moves a ferromagnetic core, which in turn operates the valve mechanism. These coils are designed for reliability and longevity in demanding industrial environments.</p>
     </div>
 
    <div class="component" data-aos="fade-up">
-      
       <h3>Pressure Transmitter</h3>
-      <p>The pressure transmitter monitors the gas pressure within the system and converts it into an electrical signal. It uses a sensor, typically a strain gauge or diaphragm, that deforms under pressure. This deformation is converted into a signal (usually 4–20 mA or 0–10 V) sent to a control system for monitoring, display, or triggering safety mechanisms such as emergency shutdowns.</p>
-      <iframe src="https://www.youtube.com/embed/4TixHFwdujA" allowfullscreen></iframe>
+      <p class="highlight">The pressure transmitter monitors the gas pressure within the system and converts it into an electrical signal. It uses a sensor, typically a strain gauge or diaphragm, that deforms under pressure. This deformation is converted into a signal (usually 4–20 mA or 0–10 V) sent to a control system for monitoring, display, or triggering safety mechanisms such as emergency shutdowns.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/4TixHFwdujA" allowfullscreen></iframe>
+      </div>
     </div>
 
   </section>
 
 <section id="suggestion">
-    <h2>Suggestions</h2>
-    <p>If you have any feedback or suggestions, please fill out the form below:</p>
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfmhbB6V8CAT4uBR0_6fCVa9xu3hyF1N5ex--6ql1M3hSQgKg/viewform?embedded=true" 
-      width="100%" 
-      height="800" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0">
-      Loading…
-    </iframe>
+    <div class="section-container">
+      <h2>Feedback & Suggestions</h2>
+      <p>Your insights are valuable for improving future internship experiences. If you have any feedback or suggestions, please share them using the form below:</p>
+      <div class="form-container" data-aos="fade-up">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfmhbB6V8CAT4uBR0_6fCVa9xu3hyF1N5ex--6ql1M3hSQgKg/viewform?embedded=true" 
+          width="100%" 
+          height="800" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Parker Hannifin Internship Report | Designed by Prachit P. Sangwai</p>
-    <p>Roll No. BT22MEC013 | VNIT Nagpur</p>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-industry"></i>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2025 Internship Report</p>
+        <p>Designed by Prachit P. Sangwai</p>
+        <p>Roll No. BT22MEC013 | VNIT Nagpur</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about" aria-label="Go to about section"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
   </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+  
+  // Add scroll class to navigation on scroll
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('main-nav');
+    if (window.scrollY > 100) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
 </script>
 
 </body>
